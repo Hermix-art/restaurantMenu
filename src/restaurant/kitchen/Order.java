@@ -10,14 +10,27 @@ public class Order {
     private final Tablet tablet;
     protected List<Dish> dishes;//chosen dishes
 
+    public int getTotalCookingTime(){
+        int sum = 0;
+        for(Dish dish: dishes){
+            sum += dish.getDuration();
+        }
+        return sum;
+    }
+
     public Order(Tablet tablet) throws IOException {
         this.tablet = tablet;
         dishes = ConsoleHelper.getAllDishesForOrder();
     }
 
+    public boolean isEmpty(){
+        return dishes.isEmpty();
+    }
+
     @Override
     public String toString() {
-        if(dishes.isEmpty()) return " ";
-        return "Your order: " + dishes.toString() + " of " + tablet.toString();
+        if(isEmpty()) return " ";
+        return "Your order: " + dishes.toString() + " of " + tablet.toString() +
+                ", cooking time " + getTotalCookingTime() + "min";
     }
 }
