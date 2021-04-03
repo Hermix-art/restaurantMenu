@@ -1,5 +1,6 @@
 package restaurant;
 
+import restaurant.ad.AdvertisementManager;
 import restaurant.kitchen.Order;
 
 import java.io.IOException;
@@ -24,6 +25,9 @@ public class Tablet extends Observable {
             if(!order.isEmpty()){
                 setChanged();
                 notifyObservers(order);
+
+                AdvertisementManager advertisementManager = new AdvertisementManager(order.getTotalCookingTime() * 60);
+                advertisementManager.processVideos();
             }
 
         } catch (IOException e) {
