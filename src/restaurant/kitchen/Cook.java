@@ -3,7 +3,10 @@ package restaurant.kitchen;
 import java.util.Observable;
 import java.util.Observer;
 
-public class Cook extends Observable implements Observer{
+/**
+ * @author Herman Kulik
+ */
+public class Cook extends Observable implements Observer {
     private String name;
 
     public Cook(String name) {

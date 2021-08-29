@@ -1,5 +1,8 @@
 package restaurant.kitchen;
 
+/**
+ * @author Herman Kulik
+ */
 public enum Dish {
     FISH(25),
     STEAK(30),

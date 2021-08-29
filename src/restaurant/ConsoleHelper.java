@@ -10,6 +10,9 @@ import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
+/**
+ * @author Herman Kulik
+ */
 public class ConsoleHelper {
     private static BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
 

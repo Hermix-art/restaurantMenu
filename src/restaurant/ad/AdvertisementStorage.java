@@ -3,6 +3,9 @@ package restaurant.ad;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * @author Herman Kulik
+ */
 public class AdvertisementStorage {
     private static AdvertisementStorage storage;
     private final List<Advertisement> videos = new ArrayList<>();

@@ -1,5 +1,8 @@
 package restaurant.ad;
 
+/**
+ * @author Herman Kulik
+ */
 public class Advertisement {
     private Object content;
     private String name;
@@ -16,7 +19,7 @@ public class Advertisement {
         this.hits = hits;
         this.duration = duration;
 
-        if(hits != 0){
+        if (hits != 0) {
             amountPerOneDisplaying = initialAmount / hits;
         }
 
@@ -32,5 +35,12 @@ public class Advertisement {
 
     public long getAmountPerOneDisplaying() {
         return amountPerOneDisplaying;
+    }
+
+    public void revalidate() {
+        if (hits <= 0) {
+            throw new UnsupportedOperationException();
+        }
+        hits--;
     }
 }
