@@ -6,7 +6,7 @@ package restaurant.kitchen;
 public enum Dish {
     FISH(25),
     STEAK(30),
-    SOUP(15),
+    SOUP(13),
     JUICE(5),
     WATER(3);
 
@@ -16,7 +16,7 @@ public enum Dish {
         return duration;
     }
 
-    private Dish(int duration) {
+    Dish(int duration) {
         this.duration = duration;
     }
 
