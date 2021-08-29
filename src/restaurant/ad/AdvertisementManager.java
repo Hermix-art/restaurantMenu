@@ -40,23 +40,12 @@ public class AdvertisementManager {
     private final Comparator<List<Advertisement>> optimalSetComparator = new Comparator<List<Advertisement>>() {
         @Override
         public int compare(List<Advertisement> o1, List<Advertisement> o2) {
-            long o1sum = 0;
-            long o2sum = 0;
-            int o1dur = 0;
-            int o2dur = 0;
-            int o1hits = 0;
-            int o2hits = 0;
-
-            for (Advertisement a : o1) {
-                o1sum += a.getInitialAmount();
-                o1dur += a.getDuration();
-                o1hits += a.getHits();
-            }
-            for (Advertisement a : o2) {
-                o2sum += a.getInitialAmount();
-                o2dur += a.getDuration();
-                o2hits += a.getHits();
-            }
+            long o1sum = o1.stream().mapToLong(Advertisement::getInitialAmount).sum();
+            long o2sum = o2.stream().mapToLong(Advertisement::getInitialAmount).sum();
+            int o1dur = o1.stream().mapToInt(Advertisement::getDuration).sum();
+            int o2dur = o2.stream().mapToInt(Advertisement::getDuration).sum();
+            int o1hits = o1.stream().mapToInt(Advertisement::getHits).sum();
+            int o2hits = o2.stream().mapToInt(Advertisement::getHits).sum();
 
             if (o1sum < o2sum) {
                 return 1;
