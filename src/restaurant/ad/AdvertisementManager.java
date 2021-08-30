@@ -1,5 +1,8 @@
 package restaurant.ad;
 
+import restaurant.statistic.StatisticManager;
+import restaurant.statistic.event.VideoSelectedEventDataRow;
+
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
@@ -9,6 +12,9 @@ import java.util.List;
  * @author Herman Kulik
  */
 public class AdvertisementManager {
+    private long maxAmount;
+    private int totalDuration;
+
     private final AdvertisementStorage storage = AdvertisementStorage.getInstance();
     private int timeSeconds;
 
@@ -68,6 +74,7 @@ public class AdvertisementManager {
     /**
      * Searches for optimal set of advertisements videos, using {@link #processTheAdvertisements()} and prints optimal set of advertisement videos,
      * using {@link #printOptimalAdvertisements(List)}
+     * Registers optimal videos statistics via StatisticManager
      *
      * @throws NoVideoAvailableException when no videos in a storage
      */
@@ -75,7 +82,15 @@ public class AdvertisementManager {
         if (storage.list().isEmpty()) {
             throw new NoVideoAvailableException();
         }
-        printOptimalAdvertisements(processTheAdvertisements());
+        List<Advertisement> optimalVideoSet = processTheAdvertisements();
+        maxAmount = optimalVideoSet.stream().mapToLong(Advertisement::getInitialAmount).sum();
+        totalDuration = optimalVideoSet.stream().mapToInt(Advertisement::getDuration).sum();
+
+        StatisticManager // statistic registration
+                .getInstance()
+                .register(new VideoSelectedEventDataRow(optimalVideoSet, maxAmount, timeSeconds));
+
+        printOptimalAdvertisements(optimalVideoSet);
     }
 
     /**

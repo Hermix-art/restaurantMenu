@@ -11,6 +11,11 @@ public class NoAvailableVideoEventDataRow implements EventDataRow {
     private final Date currentDate;
     private int totalDuration;
 
+    @Override
+    public EventType getType() {
+        return EventType.NO_AVAILABLE_VIDEO;
+    }
+
     /**
      * @param totalDuration time of dish cooking
      */

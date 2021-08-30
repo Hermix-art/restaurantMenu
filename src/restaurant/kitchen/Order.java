@@ -36,4 +36,12 @@ public class Order {
         return "Your order: " + dishes.toString() + " of " + tablet.toString() +
                 ", cooking time " + getTotalCookingTime() + "min";
     }
+
+    public String getTabletName() {
+        return tablet.toString();
+    }
+
+    public List<Dish> getDishes() {
+        return dishes;
+    }
 }

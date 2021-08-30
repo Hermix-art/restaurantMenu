@@ -6,4 +6,5 @@ package restaurant.statistic.event;
  * @author Herman Kulik
  */
 public interface EventDataRow {
+    EventType getType();
 }
