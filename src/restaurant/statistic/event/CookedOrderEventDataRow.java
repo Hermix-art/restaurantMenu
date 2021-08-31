@@ -17,6 +17,10 @@ public class CookedOrderEventDataRow implements EventDataRow {
     private int cookingTimeSeconds;
     private List<Dish> cookingDishes;
 
+    public String getCookName() {
+        return cookName;
+    }
+
     /**
      * @param tabletName         name of the tablet, the order was created with
      * @param cookName           cook, which cooked the dish
@@ -33,7 +37,22 @@ public class CookedOrderEventDataRow implements EventDataRow {
     }
 
     @Override
+    public Date getDate() {
+        return currentDate;
+    }
+
+    @Override
+    public int getTime() {
+        return 0;
+    }
+
+    public int getCookingTimeSeconds() {
+        return cookingTimeSeconds;
+    }
+
+    @Override
     public EventType getType() {
         return EventType.COOKED_ORDER;
     }
+
 }

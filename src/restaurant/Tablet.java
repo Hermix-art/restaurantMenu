@@ -24,14 +24,13 @@ public class Tablet extends Observable {
         Order order = null;
         try {
             order = new Order(this);
-            ConsoleHelper.writeMessage(order.toString());
 
             if (!order.isEmpty()) {
-                setChanged();
-                notifyObservers(order);
-
+                ConsoleHelper.writeMessage(order.toString());
                 AdvertisementManager advertisementManager = new AdvertisementManager(order.getTotalCookingTime() * 60);
                 advertisementManager.processVideos();
+                setChanged();
+                notifyObservers(order);
             }
 
         } catch (IOException e) {

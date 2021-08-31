@@ -68,4 +68,5 @@ public class Advertisement {
     public int hashCode() {
         return Objects.hash(content, getName(), getInitialAmount(), getHits(), getDuration(), getAmountPerOneDisplaying());
     }
+
 }

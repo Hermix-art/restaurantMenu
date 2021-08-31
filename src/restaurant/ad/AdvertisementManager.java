@@ -83,7 +83,7 @@ public class AdvertisementManager {
             throw new NoVideoAvailableException();
         }
         List<Advertisement> optimalVideoSet = processTheAdvertisements();
-        maxAmount = optimalVideoSet.stream().mapToLong(Advertisement::getInitialAmount).sum();
+        maxAmount = optimalVideoSet.stream().mapToLong(Advertisement::getAmountPerOneDisplaying).sum();
         totalDuration = optimalVideoSet.stream().mapToInt(Advertisement::getDuration).sum();
 
         StatisticManager // statistic registration

@@ -1,5 +1,7 @@
 package restaurant.statistic.event;
 
+import java.util.Date;
+
 /**
  * Marker interface
  *
@@ -7,4 +9,8 @@ package restaurant.statistic.event;
  */
 public interface EventDataRow {
     EventType getType();
+
+    Date getDate();
+
+    int getTime();
 }
