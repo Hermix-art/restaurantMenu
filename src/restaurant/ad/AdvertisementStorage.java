@@ -22,20 +22,26 @@ public class AdvertisementStorage {
         Object videoContent = new Object();
         Advertisement advertisement1 =
                 new Advertisement(videoContent, "Vanish video", 100, 50, 10 * 60);//3 min
-        Advertisement advertisement5 =
-                new Advertisement(videoContent, "BMW", 100, 12, 10 * 60);//3 min
-        Advertisement advertisement4 =
-                new Advertisement(videoContent, "VW video", 100, 50, 4 * 60);
         Advertisement advertisement2 =
                 new Advertisement(videoContent, "Food truck video", 2000, 5, 3 * 60);
         Advertisement advertisement3 =
                 new Advertisement(videoContent, "Mercedes video", 7000, 10, 15 * 60);
+        Advertisement advertisement4 =
+                new Advertisement(videoContent, "VW video", 100, 50, 4 * 60);
+        Advertisement advertisement5 =
+                new Advertisement(videoContent, "BMW", 100, 12, 10 * 60);//3 min
+        Advertisement advertisement6 =
+                new Advertisement(videoContent, "Gibson video", 700, 0, 15 * 60);
+        Advertisement advertisement7 =
+                new Advertisement(videoContent, "Sony video", 1000, 0, 15 * 60);
 
         videos.add(advertisement1);
         videos.add(advertisement2);
         videos.add(advertisement3);
         videos.add(advertisement4);
         videos.add(advertisement5);
+        videos.add(advertisement6);
+        videos.add(advertisement7);
     }
 
     public static AdvertisementStorage getInstance() {
