@@ -11,14 +11,14 @@ public class RandomOrderGeneratorTask implements Runnable {
     private List<Tablet> tablets;
     private int delay;
 
-    public RandomOrderGeneratorTask(List<Tablet> tablets, int delay) {
+    public RandomOrderGeneratorTask(List<Tablet> tablets, int interval) {
         this.tablets = tablets;
-        this.delay = delay;
+        this.delay = interval;
     }
 
     @Override
     public void run() {
-        while (true) {
+        while (!Thread.currentThread().isInterrupted()) {
             Tablet tablet = tablets.get((int) (Math.random() * tablets.size()));
 
             tablet.createOrder();
