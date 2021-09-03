@@ -22,6 +22,10 @@ public class StatisticManager {
     private StatisticManager() {
     }
 
+    public Set<Cook> getCooks() {
+        return cooks;
+    }
+
     /**
      * Helps to implement singleton pattern for StatisticManager
      *

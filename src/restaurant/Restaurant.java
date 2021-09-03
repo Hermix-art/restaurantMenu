@@ -27,7 +27,7 @@ public class Restaurant {
         StatisticManager.getInstance().register(cookRyan);
 
         List<Tablet> tablets = new ArrayList<>();
-        OrderManager orderManager = new OrderManager();
+        OrderManager orderManager = new OrderManager(); // searches for cooks to give them order
 
         for (int i = 0; i < 5; i++) {
             Tablet tablet = new Tablet(i + 1);
@@ -35,7 +35,8 @@ public class Restaurant {
             tablets.add(tablet);
         }
 
-        RandomOrderGeneratorTask generatorTask = new RandomOrderGeneratorTask(tablets, 500);
+        RandomOrderGeneratorTask generatorTask = new RandomOrderGeneratorTask(tablets, ORDER_CREATING_INTERVAL); // generates orders
+
         Thread thread = new Thread(generatorTask);
         thread.start();
         try {
