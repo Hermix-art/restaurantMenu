@@ -1,6 +1,7 @@
 package restaurant;
 
 import restaurant.kitchen.Cook;
+import restaurant.kitchen.Order;
 import restaurant.kitchen.Waiter;
 import restaurant.statistic.StatisticManager;
 
@@ -26,11 +27,11 @@ public class Restaurant {
         StatisticManager.getInstance().register(cookRyan);
 
         List<Tablet> tablets = new ArrayList<>();
+        OrderManager orderManager = new OrderManager();
 
         for (int i = 0; i < 5; i++) {
             Tablet tablet = new Tablet(i + 1);
-            tablet.addObserver(cookJohn);
-            tablet.addObserver(cookRyan);
+            tablet.addObserver(orderManager);
             tablets.add(tablet);
         }
 
